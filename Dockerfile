@@ -14,6 +14,7 @@ RUN \
 	apt-get clean && rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/* && \
 	cpan LWP::UserAgent::Determined && \
 	cpan JSON::Backend::PP && \
+	cpan HTTP::CookieJar::LWP && \
 	sed -ri 's/^log_file.*/# \0/; \
 			s/^pid_file.*/# \0/; \
 			s/^background 1$/background 0/; \
@@ -22,10 +23,6 @@ RUN \
 	/bin/echo -e "cidr_allow ${ALLOWED_HOSTS}" >> /etc/munin/munin-node.conf && \
 	mkdir /var/run/munin  && \
 	chown munin:munin /var/run/munin
-
-# ln -s /usr/share/munin/plugins/sensors_   /etc/munin/plugins/sensors_temp && \
-# ln -s /usr/share/munin/plugins/sensors_   /etc/munin/plugins/sensors_fan && \
-# ln -s /usr/share/munin/plugins/sensors_   /etc/munin/plugins/sensors_volt && \
 
 ADD start.sh /
 ADD payload/apache24.conf /etc/munin/

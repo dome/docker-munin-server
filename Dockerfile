@@ -12,6 +12,8 @@ RUN \
 	apt-get update && apt-get -y upgrade && \
 	DEBIAN_FRONTEND=noninteractive apt-get install -y munin apache2 lm-sensors postfix mailutils tzdata perl libwww-perl libjson-perl && \
 	apt-get clean && rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/* && \
+	cpan LWP::UserAgent::Determined && \
+	cpan JSON::Backend::PP && \
 	sed -ri 's/^log_file.*/# \0/; \
 			s/^pid_file.*/# \0/; \
 			s/^background 1$/background 0/; \

@@ -20,11 +20,12 @@ RUN \
 			s/^setsid 1$/setsid 0/; \
 			' /etc/munin/munin-node.conf && \
 	/bin/echo -e "cidr_allow ${ALLOWED_HOSTS}" >> /etc/munin/munin-node.conf && \
-	ln -s /usr/share/munin/plugins/sensors_   /etc/munin/plugins/sensors_temp && \
-	ln -s /usr/share/munin/plugins/sensors_   /etc/munin/plugins/sensors_fan && \
-	ln -s /usr/share/munin/plugins/sensors_   /etc/munin/plugins/sensors_volt && \
 	mkdir /var/run/munin  && \
 	chown munin:munin /var/run/munin
+
+# ln -s /usr/share/munin/plugins/sensors_   /etc/munin/plugins/sensors_temp && \
+# ln -s /usr/share/munin/plugins/sensors_   /etc/munin/plugins/sensors_fan && \
+# ln -s /usr/share/munin/plugins/sensors_   /etc/munin/plugins/sensors_volt && \
 
 ADD start.sh /
 ADD payload/apache24.conf /etc/munin/

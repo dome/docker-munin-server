@@ -10,7 +10,7 @@ ENV ALLOWED_HOSTS="127.0.0.1/32" \
 
 RUN \
 	apt-get update && apt-get -y upgrade && \
-	DEBIAN_FRONTEND=noninteractive apt-get install -y munin apache2 lm-sensors postfix mailutils tzdata perl libwww-perl libjson-perl && \
+	DEBIAN_FRONTEND=noninteractive apt-get install -y munin apache2 lm-sensors postfix mailutils tzdata perl libwww-perl libjson-perl build-essential && \
 	apt-get clean && rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/* && \
 	cpan LWP::UserAgent::Determined && \
 	cpan JSON::Backend::PP && \

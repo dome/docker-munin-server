@@ -3,8 +3,8 @@ FROM ubuntu:xenial
 MAINTAINER git@shaf.net
 
 ENV ALLOWED_HOSTS="127.0.0.1/32" \
-	HOSTNAME="unRAID" \
-	TZ="Europe/London" \
+	HOSTNAME="domeCloud" \
+	TZ="Asia/Bangkok" \
 	SMTP_RELAY="10.0.0.1" \
 	BUILD_TRIGGED="2017-10-21 14:08"
 

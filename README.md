@@ -53,21 +53,21 @@ docker build -t shaf/munin-server .
 
 docker run -d --name=munin-server --net="bridge" \
 	-e ALLOWED_HOSTS="0/0" \
-	-e HOSTNAME="unRAID" \
-	-e TZ="Europe/London" \
+	-e HOSTNAME="domeCloud" \
+	-e TZ="Asia/Bangkok" \
 	-p 8888:80/tcp -p 4949:4949/tcp \
 	-v /mnt/user/appdata/munin-server/www:/var/cache/munin/www:rw \
 	-v /mnt/user/appdata/munin-server/rrd:/var/lib/munin:rw \
 	-v /mnt/user/appdata/munin-server/conf:/etc/munin/munin-conf.d:rw \
 	-v /:/rootfs:ro \
-	-v /sys:/sys:ro shaf/munin-server
+	-v /sys:/sys:ro domecloud/munin
 
 # Barebones without data retention
 
 docker run -d --name=munin-server --net="bridge" \
 	-p 8888:80/tcp \
 	-v /:/rootfs:ro \
-	-v /sys:/sys:ro shaf/munin-server
+	-v /sys:/sys:ro domecloud/munin
 ```
 
 Munin interface accessible via http://host:8888/

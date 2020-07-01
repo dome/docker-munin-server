@@ -34,3 +34,4 @@ EXPOSE 80 4949
 VOLUME ["/etc/munin/munin-conf.d", "/var/cache/munin/www", "/var/lib/munin"]
 
 CMD ["/start.sh"]
+

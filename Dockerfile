@@ -1,12 +1,12 @@
-FROM ubuntu:xenial
+FROM ubuntu:xenial-20200514
 
-MAINTAINER git@shaf.net
+MAINTAINER dome@dome.cloud
 
 ENV ALLOWED_HOSTS="127.0.0.1/32" \
 	HOSTNAME="domeCloud" \
 	TZ="Asia/Bangkok" \
 	SMTP_RELAY="10.0.0.1" \
-	BUILD_TRIGGED="2017-10-21 14:08"
+	BUILD_TRIGGED="2020-07-01 20:20"
 
 RUN \
 	apt-get update && apt-get -y upgrade && \
